@@ -13,12 +13,16 @@ body{
     flex-direction: column;
     width: 100vw;
     background-color: rgb(94, 88, 88);
+    overflow-x: hidden;
 }
 a:link, a:visited, a:active {
     text-decoration:none;
     display:block;
 }
-
+input, textarea{
+    max-width: 100%;
+    color:black;
+}
 /* HEADER */
 
 header{  
@@ -107,11 +111,12 @@ h3 {
 
 .container-aside {
     width: 20%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     background-color: rgb(77, 73, 73);
-    /*position: fixed;*/
-    float: right;
+    position: fixed;
+    overflow-y: auto;
     top: 0;
     right: 0;
 }
@@ -124,7 +129,7 @@ h3 {
     border-radius: 5px;
     background-color: rgb(233, 223, 223);
 }
-.container-color {
+.alineacion-row {
     display: flex;
     flex-direction: row;
 }
@@ -160,7 +165,7 @@ option {
     margin-top: 5px;
     font-size: 10px;
 }
-.margen-50 {
+.margen-30 {
     margin-top: 30px;
 }
 input {
@@ -174,12 +179,25 @@ input {
 .icono-alig {
     color: gray;
 }
-.alineacion {
-    display: flex;
-    flex-direction: row;
-}
+
 .boton-icono {
     width: 30px;
     height: 30px;
     margin: 5px 5px 0 0;
+}
+.alineacion-column {
+    display: flex;
+    flex-direction: column;
+}
+.boton-contorno {
+    color:gray;
+    height: 30px;
+    margin: 5px 5px 0 0;
+    text-align: center;
+    padding: 7px;
+}
+.input-espaciado {
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
 }
