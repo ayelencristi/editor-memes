@@ -5,15 +5,17 @@
     padding: 0px;
     box-sizing: border-box;
     font-family: Montserrat, sans serif;
-    color: white;
 }
 
 body{
     display: flex;
     flex-direction: column;
     width: 100vw;
-    background-color: rgb(94, 88, 88);
+    background-color: rgb(255, 255, 255);
     overflow-x: hidden;
+}
+body.dark {
+    background-color: rgb(94, 88, 88);
 }
 a:link, a:visited, a:active {
     text-decoration:none;
@@ -25,13 +27,16 @@ input, textarea{
 }
 /* HEADER */
 
-header{  
+.main-header{  
     width: 80%;
-    background-color: rgb(26, 24, 24);
+    background-color: #77F2CF;
     display: block;
     justify-content: center;
     padding-top: 20px;
-
+}
+.dark .main-header {
+    background-color: rgb(26, 24, 24);
+    color: white;
 }
 .titulo {
     text-align: center;
@@ -48,11 +53,14 @@ header{
     justify-content: center;
     height: 30px;
     align-items: center;
-    background-color: rgb(56, 53, 53);
+    background-color: white;
     padding: 0 10px;
     border-radius: 20px;
     border: 1px solid transparent;
     margin-right: 5px;
+}
+.dark .botones {
+    background-color: rgb(56, 53, 53);
 }
 /* MAIN */
 .texto-main {     
@@ -114,11 +122,14 @@ h3 {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: rgb(77, 73, 73);
+    background-color: #4BE39F;
     position: fixed;
     overflow-y: auto;
     top: 0;
     right: 0;
+}
+.dark .container-aside {
+    background-color: rgb(77, 73, 73);
 }
 .section-image {
     margin: 5%;
