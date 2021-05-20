@@ -20,8 +20,9 @@ a:link, a:visited, a:active {
     text-decoration:none;
     display:block;
 }
-input, textarea{
+input {
     max-width: 100%;
+    height: 30px;
     color:black;
 }
 /* HEADER */
@@ -60,6 +61,15 @@ input, textarea{
 .dark .botones {
     background-color:#03395e ;
     color: white;
+}
+.oscuro{
+    display: none;
+}
+body.dark .oscuro{
+    display: inline-block;
+} 
+body.dark .claro{
+    display: none;
 }
 i{
     padding: 5px;
