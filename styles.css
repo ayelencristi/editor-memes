@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 *{
     margin: 0px;
     padding: 0px;
@@ -7,9 +6,8 @@
     font-family: Montserrat, sans serif;
 }
 body{
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    width: 100vw;
     background-color: #8ccbf5;
     overflow-x: hidden;
 }
@@ -20,15 +18,13 @@ a:link, a:visited, a:active {
     text-decoration:none;
     display:block;
 }
-input {
+input, textarea{
     max-width: 100%;
-    height: 30px;
     color:black;
 }
 /* HEADER */
 .main-header{  
-    width: 80%;
-    background-color: #2d719e;
+    background-color: #74bcec;
     display: block;
     justify-content: center;
     padding: 10px;
@@ -43,8 +39,6 @@ input {
 .options-buttons {
     display: flex;
     flex-wrap:wrap;
-    margin-top: 20px;
-    margin-bottom: 20px;
     justify-content: center;
 }
 .botones {
@@ -52,14 +46,14 @@ input {
     justify-content: center;
     height: 30px;
     align-items: center;
-    background-color: #8accf8;
-    padding: 0 10px;
-    border-radius: 20px;
+    background-color: transparent;
+    padding:17px 8px;
+    border-radius: 5px;
     border: 1px solid transparent;
-    margin-right: 5px;
+    
 }
 .dark .botones {
-    background-color:#03395e ;
+    background-color: transparent ;
     color: white;
 }
 .oscuro{
@@ -75,42 +69,78 @@ i{
     padding: 5px;
 }
 /* MAIN */
-.texto-main {     
-    font-size: 30px;
-    font-weight: 900;
-    color:black;
-    text-align: center;
-}
-.contenedor1 {
-    width: 80%;
+.main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    flex-grow: 1;
+}
+.wrapper-body{
+    display:flex;
     align-items: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    justify-content: center;
+    flex-direction: column;
+    flex-basis: 1;
 }
 .top-text {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
-    height: 13vh;
+    width: 100%;
+    height: 15vh;
     background-color: white;
+    font-size: 30px;
+    font-weight: 900;
+    color:black;
+    text-align: center; 
+}
+
+
+.alineacion-texto-left .top-text{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}
+.alineacion-texto-center{
+    justify-content: center;
+}
+.alineacion-texto-right{
+    justify-content: flex-end;
 }
 .imagen {
-    width: 50%;
-    height: 50vh;
+    width: 500px;
+    height: 70vh;
     background-color: black;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-position:center;
+    
+}
+.imagenMedio {
+    width: 100%;
+    height: 70vh;
+    opacity: 0.5;
+    
+    
 }
 .bottom-text {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
-    height: 13vh;
+    width: 100%;
+    height: 15vh;
     background-color: white;
+    font-size: 30px;
+    font-weight: 900;
+    color:black;
+    text-align: center;    
 }
+
+.opacity {
+    opacity: 0;
+}
+
 .boton-descargar {
     height: 40px;
     width: 200px;
@@ -120,6 +150,7 @@ i{
     margin: 15px;
     color: aliceblue;
 }
+
 /* ASIDE */
 h2 {
     text-align: center;
@@ -131,16 +162,16 @@ h3 {
     margin: 10px;
 }
 .container-aside {
-    width: 20%;
+    flex-basis: 300px;
     height: 100vh;
     display: flex;
     flex-direction: column;
     background-color: #63bbf5;
-    position: fixed;
     overflow-y: auto;
     top: 0;
     right: 0;
 }
+
 .dark .container-aside {
     background-color: #1c3a4e;
     color: white;
@@ -154,7 +185,6 @@ h3 {
 .oculto {
     display: none;
 }
-
 .input-url {
     width: 200px;
     height: 30px;
@@ -217,6 +247,14 @@ option {
 }
 
 /*FUENTE*/
+.font-family {
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #93c5e5;
+    border: none;
+    outline: none;
+}
 .color-fuente{
     width: 200px;
     height: 30px;
@@ -236,6 +274,8 @@ option {
     border:none;
     outline: none;
     color: white;
+    width: 250px;
+    height: 40px;
 }
 .dark .sup-inf{
     background-color:#334653;
@@ -245,14 +285,12 @@ option {
 }
 .check {
     margin-top: 5px;
-    font-size: 10px;
+    font-size: 13px;
 }
 .margen-30 {
     margin-top: 30px;
 }
-input {
-    color:black;
-}
+
 .input-numer {
     width: 100px;
     height: 30px;
@@ -318,4 +356,59 @@ input {
     border:none;
     outline: none;
     color: white;
+}
+/* ANIMACIONES */
+
+/*Botones header*/
+.botones:hover{
+    transition-duration:0.1s;
+    background-color: #467a9c;
+}
+
+/*Boton descargar*/
+.boton-descargar:hover{
+    transition-duration:0.1s;
+    background-color: #0c3c5a;
+}
+
+/*botones-input aside IMAGEN*/
+.input-url:hover{
+    transition-duration:0.1s;
+    background-color: #629fc5;
+}
+.caja-color:hover{
+    transition-duration:0.1s;
+    background-color: #629fc5;
+} 
+
+/*Boton reestablecer filtros*/
+.boton-filtros:hover{
+    transition-duration:0.1s;
+    background-color: #3274a0;
+}
+
+/*botones-input aside TEXTO*/
+.sup-inf:hover{
+    transition-duration:0.1s;
+    background-color: #629fc5;
+}
+.color-fuente:hover{
+    transition-duration:0.1s;
+    background-color: #629fc5;
+} 
+.input-numer:hover{
+    transition-duration:0.1s;
+    background-color: #629fc5;
+}
+.boton-icono:hover{
+    transition-duration:0.1s;
+    background-color: #629fc5;
+}
+.boton-contorno:hover{
+    transition-duration:0.1s;
+    background-color: #629fc5;
+}
+.input-espaciado:hover{
+    transition-duration:0.1s;
+    background-color: #629fc5; 
 }

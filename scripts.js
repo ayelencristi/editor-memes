@@ -7,7 +7,7 @@ const toggleMode = () => {
 prueba.addEventListener('click', toggleMode); 
 
 
-/* Función mostrar/ocultar barra aside texto/imagen*/
+// Función mostrar/ocultar barra aside texto/imagen
 
 const botonImagen = document.getElementById('botonImagen');
 const botonTexto = document.getElementById('botonTexto');
@@ -27,7 +27,7 @@ const functionAsideImagen = () => {
 botonImagen.addEventListener('click', functionAsideImagen);
 
 
-/* Función url */ 
+// Función url  
 const imagenURL = document.getElementById('url');
 const imagenMeme = document.getElementById('imagenID');
 
@@ -38,7 +38,7 @@ function imagenURLMeme() {
 imagenURL.addEventListener('change', imagenURLMeme)
 
 
-/* Funcion aplicacion de color de fondo */ 
+// Funcion aplicacion de color de fondo 
 
 let inputColorFondo = document.getElementById('color-fondo');
 
@@ -50,7 +50,7 @@ const colorFondo = () =>{
 inputColorFondo.addEventListener('input', colorFondo);
 
 
-/* Funcion seleccionar estilo color */
+// Funcion seleccionar estilo color 
 
 const botonSelect = document.getElementById('color-opciones');
 
@@ -72,12 +72,13 @@ const saturado = document.getElementById('saturado');
 const negativo = document.getElementById('negativo');
 
 const filtros = () => {
-    imagenMeme.style.filter=`brightness(${brillo.value}%)
-    opacity(${opacidad.value}%) contrast(${contraste.value}%)
-    blur(${desenfoque.value}px) grayscale(${grises.value}%)
-    sepia(${sepia.value}%) hue-rotate(${hue.value}deg)
-    saturate(${saturado.value}%) invert(${negativo.value}%)`;
-    
+    imagenMeme.style.filter=`brightness(${brillo.value}) opacity(${opacidad.value})
+    contrast(${contraste.value}%)
+    blur(${desenfoque.value}px) 
+    grayscale(${grises.value}%)
+    sepia(${sepia.value}%)
+    hue-rotate(${hue.value}deg)
+    saturate(${saturado.value}%) invert(${negativo.value})`
 }
 
 brillo.addEventListener('input', filtros);
@@ -104,21 +105,137 @@ botonReset.addEventListener('click', reset);
 
 const textoSuperior = document.getElementById('textoSuperior');
 const textoInferior = document.getElementById('textoInferior');
-let h3Top = document.getElementById('h3Top');
-const h3Bottom = document.getElementById('h3Bottom');
+const h3Top = document.getElementById('h3-top');
+const h3Bottom = document.getElementById('h3-bottom');
 
 const topText = () =>{
     const textoTop = textoSuperior.value;
     h3Top.innerHTML=textoTop;
-
 }
 textoSuperior.addEventListener('keyup', topText);
-
 
 const bottomText = () =>{
     const textoBottom = textoInferior.value;
     h3Bottom.innerHTML=textoBottom;
-
 }
 textoInferior.addEventListener('keyup', bottomText);
 
+// Desaparecer y aparecer texto superior o inferior 
+
+const contenedorTopText = document.getElementById('contenedor-top-text');
+const contenedorBottomText = document.getElementById('contenedor-bottom-text');
+const checkTextoSuperior = document.getElementById('checkSuperior');
+const checkTextoInferior = document.getElementById('checkInferior');
+
+const ocultarTextoSuperior = () => {
+    contenedorTopText.classList.toggle('oculto');
+}
+checkTextoSuperior.addEventListener('click', ocultarTextoSuperior);
+
+const ocultarTextoInferior = () => {
+    contenedorBottomText.classList.toggle('oculto');
+}
+checkTextoInferior.addEventListener('click', ocultarTextoInferior);
+
+// Cambiar fuente - Font Family   FALTA EL COMIC 
+
+const selectFontFamily = document.getElementById('font-family');
+
+const cambiarTextFontFamily = () => {
+   // const selectFont = selectFontFamily.value;
+    h3Top.style.fontFamily = selectFontFamily.value;
+    h3Bottom.style.fontFamily = selectFontFamily.value;
+
+
+   // h3Top.style.fontFamily = `(${h3Top}.value)`; `${"selectFont"}`;
+}
+selectFontFamily.addEventListener('change', cambiarTextFontFamily);
+
+// Cambiar tamaño de letra
+
+const inputTamanioLetra = document.getElementById('inputNumber');
+
+const cambiarTamanioFuente = () => {
+    contenedorTopText.style.fontSize = `${(inputTamanioLetra.value)}px`;
+    contenedorBottomText.style.fontSize = `${(inputTamanioLetra.value)}px`;
+}
+
+inputTamanioLetra.addEventListener('click', cambiarTamanioFuente);
+
+// -----Cambiar alineación NO FUNCIONA---------
+
+// const textoMain = document.getElementsByClassName('texto-main');
+// const alignLeft = document.getElementById('align-left')
+// const alignCenter = document.getElementById('align-center')
+// const alignRight = document.getElementById('align-right')
+
+// const alignTextLeft = () => {
+//     contenedorTopText.classList.toggle('alinacion-texto-left');
+//     contenedorBottomText.classList.toggle('alinacion-texto-left')
+// }
+
+// alignLeft.addEventListener('click', alignTextLeft);
+
+// const alignTextCenter = () => {
+//     contenedorTopText.classList.toggle('alinacion-texto-center');
+//     contenedorBottomText.classList.toggle('alinacion-texto-center');
+// }
+
+// alignCenter.addEventListener('click', alignTextCenter);
+
+// const alignTextRight = () => {
+//     contenedorTopText.classList.toggle('alinacion-texto-right');
+//     contenedorBottomText.classList.toggle('alinacion-texto-right');
+// }
+
+// alignRight.addEventListener('click', alignTextRight);
+
+//---------------------------------------
+
+// Color letras
+
+ const inputColorLetra = document.getElementById('color-letra');
+
+ const letraColor = () => {
+    h3Top.style.color= inputColorLetra.value;
+    h3Bottom.style.color= inputColorLetra.value;
+ }
+ inputColorLetra.addEventListener('input', letraColor);
+
+
+// Color fondo letras
+const inputLetraFondo = document.getElementById('letra-fondo');
+
+const letraFondo = () =>{
+    contenedorTopText.style.backgroundColor = inputLetraFondo.value;
+    contenedorBottomText.style.backgroundColor = inputLetraFondo.value;
+}
+inputLetraFondo.addEventListener('input', letraFondo);
+
+
+// Transparent FUNCIONA PERO BORRA TAMBIEN EL TEXTO
+
+// LO INTENTÉ DE ESTA FORMA PERO TAMPOCO FUNCIONA CON EL TEXTO, PARA MI TIENE QUE VER CON ESTO, PERO NO ME DOY CUENTA QUÉ AGREGARLE AL SPAN PARA QUE FUNCIONE
+
+const checkTransparente = document.getElementById('check-tansparente');
+
+ const fondoTransparente = () => {
+     contenedorTopText.classList.toggle('opacity');
+     contenedorBottomText.classList.toggle('opacity');
+     
+ }
+ checkTransparente.addEventListener('click', fondoTransparente);
+
+
+
+
+// Boton descarga
+
+const download = document.getElementById('descargar');
+
+download.addEventListener("click",() =>{
+    domtoimage.toBlob(imagenMeme)
+        .then(function (blob) {
+            window.saveAs(blob, 'meme.png');
+        });
+});
