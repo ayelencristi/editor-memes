@@ -95,7 +95,7 @@ i{
 }
 
 
-.alineacion-texto-left .top-text{
+/*.alineacion-texto-left .top-text{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -106,7 +106,7 @@ i{
 }
 .alineacion-texto-right{
     justify-content: flex-end;
-}
+}*/
 .imagen {
     width: 500px;
     height: 70vh;
@@ -135,10 +135,6 @@ i{
     font-weight: 900;
     color:black;
     text-align: center;    
-}
-
-.opacity {
-    opacity: 0;
 }
 
 .boton-descargar {

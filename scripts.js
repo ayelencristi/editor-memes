@@ -137,7 +137,7 @@ const ocultarTextoInferior = () => {
 }
 checkTextoInferior.addEventListener('click', ocultarTextoInferior);
 
-// Cambiar fuente - Font Family   FALTA EL COMIC 
+//  Font Family   FALTA EL COMIC 
 
 const selectFontFamily = document.getElementById('font-family');
 
@@ -151,7 +151,7 @@ const cambiarTextFontFamily = () => {
 }
 selectFontFamily.addEventListener('change', cambiarTextFontFamily);
 
-// Cambiar tamaño de letra
+// ------Tamaño de fuente---------
 
 const inputTamanioLetra = document.getElementById('inputNumber');
 
@@ -162,33 +162,47 @@ const cambiarTamanioFuente = () => {
 
 inputTamanioLetra.addEventListener('click', cambiarTamanioFuente);
 
-// -----Cambiar alineación NO FUNCIONA---------
+// -----------------Espaciado ----------------
 
-// const textoMain = document.getElementsByClassName('texto-main');
-// const alignLeft = document.getElementById('align-left')
-// const alignCenter = document.getElementById('align-center')
-// const alignRight = document.getElementById('align-right')
+const inputEspaciado = document.getElementById('espaciado');
 
-// const alignTextLeft = () => {
-//     contenedorTopText.classList.toggle('alinacion-texto-left');
-//     contenedorBottomText.classList.toggle('alinacion-texto-left')
-// }
+const cambiarEspaciado = () => {
+    contenedorTopText.style.padding = `${(inputEspaciado.value)}px`;
+    contenedorBottomText.style.padding = `${(inputEspaciado.value)}px`;
+}
 
-// alignLeft.addEventListener('click', alignTextLeft);
+inputEspaciado.addEventListener('click', cambiarEspaciado);
 
-// const alignTextCenter = () => {
-//     contenedorTopText.classList.toggle('alinacion-texto-center');
-//     contenedorBottomText.classList.toggle('alinacion-texto-center');
-// }
+//---------------------Interlineado-------------
 
-// alignCenter.addEventListener('click', alignTextCenter);
 
-// const alignTextRight = () => {
-//     contenedorTopText.classList.toggle('alinacion-texto-right');
-//     contenedorBottomText.classList.toggle('alinacion-texto-right');
-// }
 
-// alignRight.addEventListener('click', alignTextRight);
+
+// -----Alineación---------
+const btnAlignLeft = document.getElementById('align-left');
+const btnAlignCenter = document.getElementById('align-center');
+const btnAlignRight = document.getElementById('align-right');
+
+const alignTextLeft = () => {
+    contenedorTopText.style.justifyContent=`flex-start`;
+    contenedorBottomText.style.justifyContent=`flex-start`;
+}
+
+btnAlignLeft.addEventListener('click', alignTextLeft);
+
+const alignTextCenter = () => {
+    contenedorTopText.style.justifyContent=`center`;
+    contenedorBottomText.style.justifyContent=`center`;
+}
+
+btnAlignCenter.addEventListener('click', alignTextCenter);
+
+const alignTextRight = () => {
+    contenedorTopText.style.justifyContent=`flex-end`;
+    contenedorBottomText.style.justifyContent=`flex-end`;
+}
+
+btnAlignRight.addEventListener('click', alignTextRight);
 
 //---------------------------------------
 
@@ -218,10 +232,19 @@ inputLetraFondo.addEventListener('input', letraFondo);
 // LO INTENTÉ DE ESTA FORMA PERO TAMPOCO FUNCIONA CON EL TEXTO, PARA MI TIENE QUE VER CON ESTO, PERO NO ME DOY CUENTA QUÉ AGREGARLE AL SPAN PARA QUE FUNCIONE
 
 const checkTransparente = document.getElementById('check-tansparente');
+const textSpan = document.getElementsByClassName('texto-main');
 
  const fondoTransparente = () => {
-     contenedorTopText.classList.toggle('opacity');
-     contenedorBottomText.classList.toggle('opacity');
+     if (checkTransparente.checked) {
+         contenedorTopText.style.opacity= 0;
+         contenedorBottomText.style.opacity= 0;
+         textSpan.style.opacity=1;
+     }
+     else {
+        contenedorTopText.style.opacity= 1;
+        contenedorBottomText.style.opacity= 1;
+        textSpan.style.opacity=1;
+     }
      
  }
  checkTransparente.addEventListener('click', fondoTransparente);
