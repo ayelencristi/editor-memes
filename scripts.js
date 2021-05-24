@@ -178,7 +178,39 @@ inputEspaciado.addEventListener('click', cambiarEspaciado);
 
 //---------------------Interlineado-------------
 
+const selectInterlineado = document.getElementById('interlineado');
 
+const cambiarInterlineado = (event) => {
+    const alturaValue = event.target.value;
+    switch (alturaValue) {
+        case "i0.8":
+            contenedorTopText.style.lineHeight= '0.8';
+            contenedorBottomText.style.lineHeight= '0.8';
+            break;
+        case "i1":
+            contenedorTopText.style.lineHeight= '1';
+            contenedorBottomText.style.lineHeight= '1';
+            break;
+        case "i1.2":
+            contenedorTopText.style.lineHeight= '1.2';
+            contenedorBottomText.style.lineHeight= '1.2';
+            break;
+        case "i1.5":
+            contenedorTopText.style.lineHeight= '1.5';
+            contenedorBottomText.style.lineHeight= '1.5';
+            break;
+        case "i2":
+            contenedorTopText.style.lineHeight= '2';
+            contenedorBottomText.style.lineHeight= '2';
+            break;
+        case "i2.5":
+            contenedorTopText.style.lineHeight= '2.5';
+            contenedorBottomText.style.lineHeight= '2.5';
+            break;
+    }
+}
+
+selectInterlineado.addEventListener('change', cambiarInterlineado);
 
 
 // ----------Alineación----------
