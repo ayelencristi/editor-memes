@@ -1,4 +1,4 @@
-//boton modo claro / modo oscuro
+// ----------Modo claro / modo oscuro----------
 const prueba = document.getElementById('claro-oscuro');
 
 const toggleMode = () => {
@@ -6,8 +6,7 @@ const toggleMode = () => {
 }
 prueba.addEventListener('click', toggleMode); 
 
-
-// Función mostrar/ocultar barra aside texto/imagen
+// ----------Aside imagen/texto----------
 
 const botonImagen = document.getElementById('botonImagen');
 const botonTexto = document.getElementById('botonTexto');
@@ -27,7 +26,8 @@ const functionAsideImagen = () => {
 botonImagen.addEventListener('click', functionAsideImagen);
 
 
-// Función url  
+// ----------Función url---------- 
+
 const imagenURL = document.getElementById('url');
 const imagenMeme = document.getElementById('imagenID');
 
@@ -38,7 +38,7 @@ function imagenURLMeme() {
 imagenURL.addEventListener('change', imagenURLMeme)
 
 
-// Funcion aplicacion de color de fondo 
+// ---------Color de fondo del meme---------- 
 
 let inputColorFondo = document.getElementById('color-fondo');
 
@@ -50,7 +50,7 @@ const colorFondo = () =>{
 inputColorFondo.addEventListener('input', colorFondo);
 
 
-// Funcion seleccionar estilo color 
+// ----------Estilo del color----------
 
 const botonSelect = document.getElementById('color-opciones');
 
@@ -59,7 +59,7 @@ const estilos = () =>{
 }
 botonSelect.addEventListener('input', estilos);
 
-// Funcion filtros
+// ----------Funcion filtros----------
 
 const brillo = document.getElementById('brillo');
 const opacidad = document.getElementById('opacidad');
@@ -91,7 +91,7 @@ hue.addEventListener('input', filtros);
 saturado.addEventListener('input', filtros);
 negativo.addEventListener('input', filtros);
 
-// Filtro boton reset
+// ----------Filtro boton reset----------
 
 const botonReset = document.getElementById('botonReset');
 
@@ -101,26 +101,26 @@ const reset = ()=>{
 
 botonReset.addEventListener('click', reset);
 
-// Función texto top y bottom
+// ----------Función texto top y bottom----------
 
 const textoSuperior = document.getElementById('textoSuperior');
 const textoInferior = document.getElementById('textoInferior');
-const h3Top = document.getElementById('h3-top');
-const h3Bottom = document.getElementById('h3-bottom');
+// const h3Top = document.getElementById('h3-top');
+// const h3Bottom = document.getElementById('h3-bottom');
 
 const topText = () =>{
     const textoTop = textoSuperior.value;
-    h3Top.innerHTML=textoTop;
+    contenedorTopText.innerHTML=textoTop;
 }
 textoSuperior.addEventListener('keyup', topText);
 
 const bottomText = () =>{
     const textoBottom = textoInferior.value;
-    h3Bottom.innerHTML=textoBottom;
+    contenedorBottomText.innerHTML=textoBottom;
 }
 textoInferior.addEventListener('keyup', bottomText);
 
-// Desaparecer y aparecer texto superior o inferior 
+// ----------Desaparecer y aparecer texto superior o inferior----------
 
 const contenedorTopText = document.getElementById('contenedor-top-text');
 const contenedorBottomText = document.getElementById('contenedor-bottom-text');
@@ -137,27 +137,30 @@ const ocultarTextoInferior = () => {
 }
 checkTextoInferior.addEventListener('click', ocultarTextoInferior);
 
-//  Font Family   FALTA EL COMIC 
+// ----------Font Family----------
+// CAMBIE DOS ESTILOS DE LETRAS POR OTROS DOS QUE 
+// ESTAN GUARDADOS PARA NO TENER QUE IMPORTAR. 
+// SI QUIEREN IMPORTAR HAY QUE MODIFICARLOS
 
 const selectFontFamily = document.getElementById('font-family');
 
 const cambiarTextFontFamily = () => {
-   // const selectFont = selectFontFamily.value;
-    h3Top.style.fontFamily = selectFontFamily.value;
-    h3Bottom.style.fontFamily = selectFontFamily.value;
-
-
-   // h3Top.style.fontFamily = `(${h3Top}.value)`; `${"selectFont"}`;
+    contenedorTopText.style.fontFamily = selectFontFamily.value;
+    contenedorBottomText.style.fontFamily = selectFontFamily.value;
 }
 selectFontFamily.addEventListener('change', cambiarTextFontFamily);
 
-// ------Tamaño de fuente---------
+// ------Tamaño de fuente--------- 
+//NO TIENE QUE SALIR DE LOS CONTENEDORES, NI DE EL MEME
 
 const inputTamanioLetra = document.getElementById('inputNumber');
 
 const cambiarTamanioFuente = () => {
     contenedorTopText.style.fontSize = `${(inputTamanioLetra.value)}px`;
     contenedorBottomText.style.fontSize = `${(inputTamanioLetra.value)}px`;
+    //h3Top.style.fontSize = `${(inputTamanioLetra.value)}px`;
+    //h3Bottom.style.fontSize = `${(inputTamanioLetra.value)}px`;
+    
 }
 
 inputTamanioLetra.addEventListener('click', cambiarTamanioFuente);
@@ -178,7 +181,8 @@ inputEspaciado.addEventListener('click', cambiarEspaciado);
 
 
 
-// -----Alineación---------
+// ----------Alineación----------
+
 const btnAlignLeft = document.getElementById('align-left');
 const btnAlignCenter = document.getElementById('align-center');
 const btnAlignRight = document.getElementById('align-right');
@@ -204,55 +208,71 @@ const alignTextRight = () => {
 
 btnAlignRight.addEventListener('click', alignTextRight);
 
-//---------------------------------------
+// ----------Color letras----------
 
-// Color letras
+const inputColorLetra = document.getElementById('color-letra');
 
- const inputColorLetra = document.getElementById('color-letra');
+const letraColor = () => {
+    contenedorTopText.style.color= inputColorLetra.value;
+    contenedorBottomText.style.color= inputColorLetra.value;
+    //h3Top.style.color= inputColorLetra.value;
+    //h3Bottom.style.color= inputColorLetra.value;
+}
+inputColorLetra.addEventListener('input', letraColor);
 
- const letraColor = () => {
-    h3Top.style.color= inputColorLetra.value;
-    h3Bottom.style.color= inputColorLetra.value;
- }
- inputColorLetra.addEventListener('input', letraColor);
 
-
-// Color fondo letras
+// ----------Color fondo letras----------
 const inputLetraFondo = document.getElementById('letra-fondo');
 
 const letraFondo = () =>{
     contenedorTopText.style.backgroundColor = inputLetraFondo.value;
     contenedorBottomText.style.backgroundColor = inputLetraFondo.value;
+    // h3Top.style.backgroundColor = inputLetraFondo.value;
+    // h3Bottom.style.backgroundColor = inputLetraFondo.value;
 }
 inputLetraFondo.addEventListener('input', letraFondo);
 
 
-// Transparent FUNCIONA PERO BORRA TAMBIEN EL TEXTO
+// ----------Transparent----------
 
-// LO INTENTÉ DE ESTA FORMA PERO TAMPOCO FUNCIONA CON EL TEXTO, PARA MI TIENE QUE VER CON ESTO, PERO NO ME DOY CUENTA QUÉ AGREGARLE AL SPAN PARA QUE FUNCIONE
 
 const checkTransparente = document.getElementById('check-tansparente');
-const textSpan = document.getElementsByClassName('texto-main');
 
- const fondoTransparente = () => {
-     if (checkTransparente.checked) {
-         contenedorTopText.style.opacity= 0;
-         contenedorBottomText.style.opacity= 0;
-         textSpan.style.opacity=1;
-     }
-     else {
-        contenedorTopText.style.opacity= 1;
-        contenedorBottomText.style.opacity= 1;
-        textSpan.style.opacity=1;
-     }
-     
- }
- checkTransparente.addEventListener('click', fondoTransparente);
+const fondoTransparente = () => {
+    if (checkTransparente.checked) {
+        contenedorTopText.style.backgroundColor= 'transparent';
+        contenedorBottomText.style.backgroundColor= 'transparent';
+    }
+    else {
+       contenedorTopText.style.backgroundColor = 'white';
+       contenedorBottomText.style.backgroundColor= 'white';
+}
+}
+checkTransparente.addEventListener('click', fondoTransparente);
+
+//SACAS LOS ESTILOS, FUNCIONA PERO SI TOCAS LOS COLORES DEL FONDO 
+//APARECE EL FONDO Y NO SE PUEDE SACAR SIN REFRESCAR LA PAGINA
+//ES MEDIO LOCO LO QUE PASA JAJAJA 
+// const fondoTransparente = () => {
+//     contenedorTopText.classList.toggle('top-text');
+//     contenedorBottomText.classList.toggle('bottom-text');
+// }
+// checkTransparente.addEventListener('click', fondoTransparente)
+
+
+//ESTA ES OTRA OPCION QUE FUNCIONA PERO SACA LOS ESTILOS
+// checkTransparente.addEventListener('change', () =>{
+//     contenedorTopText.classList.toggle('top-text');
+//     contenedorBottomText.classList.toggle('bottom-text');
+// })
 
 
 
 
-// Boton descarga
+
+
+
+// ----------Boton descarga----------
 
 const download = document.getElementById('descargar');
 
