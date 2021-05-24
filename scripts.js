@@ -250,29 +250,39 @@ const fondoTransparente = () => {
 }
 checkTransparente.addEventListener('click', fondoTransparente);
 
-//SACAS LOS ESTILOS, FUNCIONA PERO SI TOCAS LOS COLORES DEL FONDO 
-//APARECE EL FONDO Y NO SE PUEDE SACAR SIN REFRESCAR LA PAGINA
-//ES MEDIO LOCO LO QUE PASA JAJAJA 
-// const fondoTransparente = () => {
-//     contenedorTopText.classList.toggle('top-text');
-//     contenedorBottomText.classList.toggle('bottom-text');
-// }
-// checkTransparente.addEventListener('click', fondoTransparente)
 
 
-//ESTA ES OTRA OPCION QUE FUNCIONA PERO SACA LOS ESTILOS
-// checkTransparente.addEventListener('change', () =>{
-//     contenedorTopText.classList.toggle('top-text');
-//     contenedorBottomText.classList.toggle('bottom-text');
-// })
+//-------------------CONTORNO------------------------//
+
+const btnNinguno = document.getElementById('btnNinguno');
+const btnClaro = document.getElementById('btnClaro');
+const btnOscuro = document.getElementById('btnOscuro');
+// Ninguno
+const contornoNinguno = () => {
+    contenedorTopText.style.textShadow= 'none';
+    contenedorBottomText.style.textShadow= 'none';
+}
+
+btnNinguno.addEventListener('click', contornoNinguno);
+// Claro
+const contornoClaro = () => {
+    contenedorTopText.style.textShadow= '2px 2px 1px #FFFFFF';
+    contenedorBottomText.style.textShadow= '2px 2px 1px #FFFFFF';
+}
+
+btnClaro.addEventListener('click', contornoClaro);
+// Oscuro
+const contornoOscuro = () => {
+    contenedorTopText.style.textShadow= '2px 2px 1px #000000';
+    contenedorBottomText.style.textShadow= '2px 2px 1px #000000';
+}
+
+btnOscuro.addEventListener('click', contornoOscuro);
 
 
 
 
-
-
-
-// ----------Boton descarga----------
+// -----------------Boton descarga-------------------
 
 const download = document.getElementById('descargar');
 
